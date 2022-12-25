@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
-import http from "../http"
 import { Link } from "react-router-dom";
+import http from "../http"
+
 export default function Home() {
     const [users, setUsers] = useState([]);
 
@@ -15,21 +16,18 @@ export default function Home() {
         })
     }
 
-
     const deleteUser = (id) => {
         http.delete('/users/'+id).then(res=>{
             fetchAllUsers();
         })
     }
 
-
-
     return (
         <div>
-            <h2>Users listing ...</h2>
-            <table className="table">
+            <h2 className="text-center my-5">User list</h2>
+            <table class="table">
                 <thead>
-                    <tr>
+                    <tr className="text-center">
                         <th>Sno.</th>
                         <th>Name</th>
                         <th>Email</th>
@@ -38,7 +36,7 @@ export default function Home() {
                 </thead>
                 <tbody>
                     {users.map((user,index)=>(
-                        <tr key={user.id}>
+                        <tr  className="text-center" key={user.id}>
                             <td>{++index}</td>
                             <td>{user.name}</td>
                             <td>{user.email}</td>

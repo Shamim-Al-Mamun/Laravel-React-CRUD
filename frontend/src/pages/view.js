@@ -9,6 +9,7 @@ export default function View(props) {
 
     useEffect(()=>{
         fetchUser()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const fetchUser= () =>{
@@ -34,6 +35,5 @@ export default function View(props) {
                 </div>
             </div>
         </div>
-
     )
 }

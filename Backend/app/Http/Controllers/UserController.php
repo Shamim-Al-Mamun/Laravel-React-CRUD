@@ -51,7 +51,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json(User::whereId($id)->first());
     }
 
     /**

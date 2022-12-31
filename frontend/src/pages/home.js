@@ -23,35 +23,37 @@ export default function Home() {
     }
 
     return (
-        <div>
-            <h2 className="text-center my-5">User list</h2>
-            <table class="table">
-                <thead>
-                    <tr className="text-center">
-                        <th>Sno.</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map((user,index)=>(
-                        <tr  className="text-center" key={user.id}>
-                            <td>{++index}</td>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>
-                                <Link className="btn btn-info" to={{ pathname: "/edit/" + user.id }}>Edit</Link>&nbsp;
-                                <Link className="btn btn-primary" to={{ pathname: "/view/" + user.id }}>View</Link>&nbsp;
-                                <button type="button" className="btn btn-danger"
-                                    onClick={()=>{deleteUser(user.id)}}
-                                    >Delete</button>
-                            </td>
+        <>
+            <div>
+                <h2 className="text-center my-5">User list</h2>
+                <table class="table">
+                    <thead>
+                        <tr className="text-center">
+                            <th>Sno.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        {users.map((user,index)=>(
+                            <tr  className="text-center" key={user.id}>
+                                <td>{++index}</td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>
+                                    <Link className="btn btn-info" to={{ pathname: "/edit/" + user.id }}>Edit</Link>&nbsp;
+                                    <Link className="btn btn-primary" to={{ pathname: "/view/" + user.id }}>View</Link>&nbsp;
+                                    <button type="button" className="btn btn-danger"
+                                        onClick={()=>{deleteUser(user.id)}}
+                                        >Delete</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </>
 
     )
 }
